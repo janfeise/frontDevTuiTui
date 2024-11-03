@@ -21,7 +21,7 @@ public class UserController {
 
     // 增加
     // URL: localhost:8088/user
-    @PostMapping
+    @PostMapping("/register")
     public ResponseMessage<User> add(@Valid @Validated @RequestBody UserRegisterDto user) {
         User userNew = userService.add(user);
         return ResponseMessage.success(userNew);
