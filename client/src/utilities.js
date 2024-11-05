@@ -33,7 +33,7 @@ export function get(endpoint, params = {})
     const fullPath = endpoint + "?" + formatParams(params);
     return fetch(fullPath)
     .then(convertToJSON)
-    .catch((err) => {
+    .catch((error) => {
         throw `GET request to ${fullPath} failed with error: \n${error}`
     });
 }

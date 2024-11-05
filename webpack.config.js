@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entryFile = path.resolve(__dirname, "client", "src", "index.js");
 const outputDir = path.resolve(__dirname, "client", "dist");
@@ -32,21 +33,13 @@ module.exports = {
         static: "./client/dist",
         hot: true,
         proxy: {
-          "/api": "http://localhost:3000",
+          "/api": "https://6041-171-223-180-32.ngrok-free.app",
         },
-      },
+    },
     mode: 'development',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'client', 'dist', 'index.html'), // 确保路径正确
+        }),
+    ],
 };
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
-module.exports = {
-  // 其他配置
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'client/dist/index.html'), // 确保路径正确
-    }),
-  ],
-};
-
