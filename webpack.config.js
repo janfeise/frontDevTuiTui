@@ -1,52 +1,52 @@
-const path = require("path");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const entryFile = path.resolve(__dirname, "client", "src", "index.js");
-const outputDir = path.resolve(__dirname, "client", "dist");
+const entryFile = path.resolve(__dirname, 'client', 'src', 'index.js');
+const outputDir = path.resolve(__dirname, 'client', 'dist');
 
 module.exports = {
-    entry: [entryFile],
+    entry: entryFile,
     output: {
         path: outputDir,
-        publicPath: "/",
-        filename: "bundle.js",
+        publicPath: '/',
+        filename: 'bundle.js',
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/, // 匹配 JavaScript 和 JSX 文件
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader", // 使用 Babel loader
+                    loader: 'babel-loader',
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"], // 添加预设
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
                     },
                 },
             },
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'], // 解析文件扩展名
+        extensions: ['.js', '.jsx'],
     },
     devServer: {
         historyApiFallback: true,
-        static: "./client/dist",
+        static: './client/dist',
         hot: true,
-        proxy: {
-          "/api": "http://localhost:3000",
-        },
-      },
+        proxy: [
+            {
+                context: ['/api', "/user"],
+                target: 'https://6887-171-223-180-32.ngrok-free.app',
+                changeOrigin: true,
+                pathRewrite: { '^/api': '' },
+            },
+        ],
+    },
     mode: 'development',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'client', 'dist', 'index.html'),
+            filename: 'index.html',
+            inject: false,
+        }),
+    ],
 };
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
-module.exports = {
-  // 其他配置
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'client/dist/index.html'), // 确保路径正确
-    }),
-  ],
-};
-

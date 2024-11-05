@@ -19,12 +19,10 @@ const LoginComponent = () => {
             userAccount,
             password,
         };
-        console.log('Login Data:', loginData);
-        // 此处可以添加登录逻辑
 
         post("/user/login", {userAccount, password})
-        .then(() => {
-            console.log("hello");
+        .then((res) => {
+            console.log(res.code);
         })
     };
 
