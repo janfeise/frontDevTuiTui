@@ -9,7 +9,7 @@
      --blue-dark: #00008B;     /* 深蓝色 */
      --blue-sky: #87CEEB;      /* 天空蓝 */
      --blue-navy: #000080;     /* 海军蓝 */
-     --darkGrey: #e0e0e0;
+     --darkGrey: rgb(206, 206, 206);
      --medGrey: #f7f7f7;
      --grey: #f7f7f7;
      --white: #fff;
@@ -49,13 +49,102 @@ body, html
     justify-content: center;
 }
 
+.u-flex-spaceBetween
+{
+    justify-content: space-between;
+}
+
 .u-shadow
 {
     border: 2px solid #333; /* 边框 */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 阴影效果 */
 }
 
-.u-fontSize
+.u-fontLargeSize
 {
-    font-size: xx-large;
+    font-size: x-large;
+}
+
+.u-width
+{
+    width: 250px;
+}
+
+.u-height
+{
+    height: 40px;
+}
+
+.u-border
+{
+    border: 2px solid var(--darkGrey); /* 外边框样式 */
+    border-radius: 8px; /* 输入框圆角 */
+}
+
+.u-border:focus
+{
+    border-color: #0DA8EE; /* 当获得焦点时，边框颜色变为浅蓝色 */
+    outline: none; /* 去除默认的焦点轮廓 */
+}
+
+.u-border:focus:hover
+{
+    border-color: #0DA8EE; /* 当获得焦点时，边框颜色变为浅蓝色 */
+    outline: none; /* 去除默认的焦点轮廓 */
+}
+
+/* 悬浮 */
+.u-border:hover
+{
+    border-color: rgb(172, 172, 172);
+}
+
+.u-fontSpacing
+{
+    letter-spacing: 2px;
+}
+
+.u-fontLargeSpacing
+{
+    letter-spacing: 10px;
+}
+
+.u-noWrap
+{
+    white-space: nowrap;
+}
+
+.u-textUnderline
+{
+    color: #0DA8EE;
+    text-decoration: underline;
+    text-decoration-color: #0DA8EE;
+    text-decoration-thickness: 1px;
+}
+
+/* 字体 */
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: "进步体"; /* 设置字体族名，后面可用 "进步体" 或 "微软雅黑" */
+    src: url("../public/fonts/钉钉进步体/DingTalk-JinBuTi.ttf"),
+}
+
+.u-fontFamily
+{
+    font-family: "进步体";
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "微软雅黑";
+    src: url("../public/fonts/1-220503221351/微软雅黑.ttf");
+}
+.u-fontWeiRuan
+{
+    font-family: "微软雅黑";
+}
+
+.u-bold
+{
+    font-weight: bolder;
 }

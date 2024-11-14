@@ -6,38 +6,35 @@
     background-color: #F4F6F9;
 }
 
-.img-logo
+.login-form
 {
-    width: 150px;   /* 设置宽度 */
-    height: 150px;  /* 设置高度 */
-    margin-bottom: calc(var(--l) * 1.5);
-}
-
-.login-div
-{
-    width: 450px;
-    height: 650px;
+    width: 420px;
+    height: 600px;
     border-radius: 8px;         /* 设置圆角，15px */
     background-color: white;
     border-top: 3px solid #6777EF;
+    margin-top: -2vh; /* 距离LOGO的距离 */
+    margin-bottom: 8vh;
 }
 
-.login-div > p
+/* 选择第一个p标签 */
+.login-form :first-child :first-child
 {
-    margin: 0;
     margin-top: 3vh;
+    margin-left: 2vh;
     margin-bottom: 3vh;
     font-size: calc(var(--l) * 1.2);
     font-weight: bold;
     color: #6777EF;
 }
 
-.login-div Login
-{
-    margin-top: 10vh;
-}
 
 .Login
 {
     border-top: 1px solid #ccc;
+}
+
+.register
+{
+    margin-top: 5vh;
 }

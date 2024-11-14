@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "./Label.css"
+import "../../utilities.css"
 /* 
 * Proptypes
 * @param {string} type 指定input框的类型：password......
@@ -11,15 +12,13 @@ import "./Label.css"
 * @param {(value) => {setValue}} onChange: 一个函数
 */
 const Label = (props) => {
-    const [value, setValue] = useState(""); // value存储用户在input框的输入内容
-
     return (
         <>
-            <label>
+            <label className="u-fontFamily u-fontLargeSize u-fontSpacing">
                 {props.display}<br />
                 <input type={props.type} name={props.name} placeholder={props.defaultText} 
                 value={props.value} onChange={props.onChange} 
-                className="Label-input"/>
+                className="Label-input u-width u-height u-border"/>
             </label>
         </>
     );
@@ -36,9 +35,9 @@ const Login = (props) => {
     return (
         <>
             <Label value={props.value_user} onChange={props.onUserChange}
-            type={"text"} display={"账户"} name={"username"}></Label>
+            type={"text"} display={"账户"} name={"username"} defaultText="请输入账户名"></Label>
             <Label value={props.value_password} onChange={props.onPasswordChange}
-            type={"password"} display={"密码"} name="password"></Label>
+            type={"password"} display={"密码"} name="password" defaultText="请输入密码"></Label>
         </>
     );
 };

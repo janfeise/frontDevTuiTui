@@ -1,11 +1,5 @@
 .Label-input
 {
-    width: 350px;
-    height: 60px;
-    background-color: #FDFDFF;
-    font-weight: bold;
-    margin-top: var(--m);
-    border: 1px solid var(--darkGrey);
-    border-radius: 10px;
-    font: bolder;
+    background-color: #FDFDFF; /* 输入框的颜色填充 */
+    margin-top: var(--m); /* 和上一个输入框的间距 */
 }
