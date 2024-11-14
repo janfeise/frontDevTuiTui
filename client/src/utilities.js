@@ -18,19 +18,23 @@ function convertToJSON(res)
         throw `API request failed with response status ${res.status} and text: ${res.statusText}`;
     }
     
-    return res
-    .clone()
-    .join()
-    .catch((err) => {
-        return res.text().then(text => {
-            throw `API request's result could not be converted to a JSON object: \n${text}`
+    // 克隆响应并读取响应文本
+    return res.clone()
+        .text()  // 获取响应文本
+        .then(text => {
+            try {
+                // 尝试将文本解析为 JSON
+                return JSON.parse(text);
+            } catch (error) {
+                // 如果解析失败，抛出错误
+                throw `API request's result could not be converted to a JSON object: \n${text}`;
+            }
         });
-    });
 }
 
 export function get(endpoint, params = {})
 {
-    const fullPath = endpoint + "?" + formatParams(params);
+    const fullPath =  "/api" + endpoint + "?" + formatParams(params);
     return fetch(fullPath)
     .then(convertToJSON)
     .catch((error) => {
@@ -40,13 +44,13 @@ export function get(endpoint, params = {})
 
 export function post(endpoint, params = {})
 {
-    return fetch(endpoint, {
+    return fetch("/api" + endpoint, {
         method: "post",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(params),
     })
     .then(convertToJSON)
-    .catch(err => {
+    .catch(error => {
         throw `POST request to ${endpoint} failed with error:\n${error}`;
     })
 }

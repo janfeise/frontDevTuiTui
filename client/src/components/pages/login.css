@@ -1,0 +1,43 @@
+/* 选择第一个div */
+.full-div
+{
+    width: 100vw;   /* 宽度占满页面 */
+    height: 100vh;  /* 高度占满页面 */
+    background-color: #F4F6F9;
+}
+
+.img-logo
+{
+    width: 150px;   /* 设置宽度 */
+    height: 150px;  /* 设置高度 */
+    margin-bottom: calc(var(--l) * 1.5);
+}
+
+.login-div
+{
+    width: 450px;
+    height: 650px;
+    border-radius: 8px;         /* 设置圆角，15px */
+    background-color: white;
+    border-top: 3px solid #6777EF;
+}
+
+.login-div > p
+{
+    margin: 0;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: calc(var(--l) * 1.2);
+    font-weight: bold;
+    color: #6777EF;
+}
+
+.login-div Login
+{
+    margin-top: 10vh;
+}
+
+.Login
+{
+    border-top: 1px solid #ccc;
+}

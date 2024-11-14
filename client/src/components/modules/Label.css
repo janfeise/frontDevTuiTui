@@ -1,0 +1,11 @@
+.Label-input
+{
+    width: 350px;
+    height: 60px;
+    background-color: #FDFDFF;
+    font-weight: bold;
+    margin-top: var(--m);
+    border: 1px solid var(--darkGrey);
+    border-radius: 10px;
+    font: bolder;
+}

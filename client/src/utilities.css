@@ -1,0 +1,61 @@
+/* 
+* 定义全局变量
+*/
+:root 
+{
+     /* color */
+     --blue-light: #ADD8E6;    /* 浅蓝色 */
+     --blue-medium: #0000FF;   /* 标准蓝色 */
+     --blue-dark: #00008B;     /* 深蓝色 */
+     --blue-sky: #87CEEB;      /* 天空蓝 */
+     --blue-navy: #000080;     /* 海军蓝 */
+     --darkGrey: #e0e0e0;
+     --medGrey: #f7f7f7;
+     --grey: #f7f7f7;
+     --white: #fff;
+
+     /* 尺寸 */
+     --xs: 4px;
+     --s: 8px;
+     --m: 16px;
+     --l: 24px;
+}
+
+body, html
+{
+    margin: 0;
+    padding: 0;
+    font-family: "FZLanTingHei", "Microsoft YaHei";
+    font-weight: 300;
+}
+
+.u-flex
+{
+    display: flex;
+    gap: var(--l);
+}
+
+.u-flex-column
+{
+    flex-direction: column;
+}
+
+.u-flex-alignCenter
+{
+    align-items: center;
+}
+
+.u-flex-justifyCenter {
+    justify-content: center;
+}
+
+.u-shadow
+{
+    border: 2px solid #333; /* 边框 */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+}
+
+.u-fontSize
+{
+    font-size: xx-large;
+}
