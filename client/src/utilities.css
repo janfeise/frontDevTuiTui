@@ -32,7 +32,7 @@ body, html
 .u-flex
 {
     display: flex;
-    gap: var(--l);
+    gap: 0;
 }
 
 .u-flex-column
@@ -58,11 +58,6 @@ body, html
 {
     border: 2px solid #333; /* 边框 */
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 阴影效果 */
-}
-
-.u-fontLargeSize
-{
-    font-size: x-large;
 }
 
 .u-width
@@ -147,4 +142,24 @@ body, html
 .u-bold
 {
     font-weight: bolder;
+}
+
+.u-backColor
+{
+    background-color: #F4F6F9;
+}
+
+.u-fontSize
+{
+    font-size: var(--m);
+}
+
+.u-fontLargeSize
+{
+    font-size: calc(var(--l) * 1.1);
+}
+
+.u-inline
+{
+    display: inline;
 }

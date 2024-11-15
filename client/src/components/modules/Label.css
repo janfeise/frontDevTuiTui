@@ -1,5 +1,20 @@
 .Label-input
 {
     background-color: #FDFDFF; /* 输入框的颜色填充 */
-    margin-top: var(--m); /* 和上一个输入框的间距 */
+    margin: var(--xs);
+    padding: 0;
+}
+
+/* 提示信息 */
+.errorMessage
+{
+    color: red;
+    font-size: var(--m);
+    margin: var(--xs);
+    padding: 0;
+}
+
+.Label
+{
+    margin-bottom: calc(var(--m) * 0.8);
 }
