@@ -52,7 +52,7 @@ module.exports = {
         hot: true, // 开启模块热替换
         proxy: {
             "/user/login": {
-                target: "http://117.72.104.77", // 添加协议，确保代理格式正确
+                target: "https://60d5-117-174-11-178.ngrok-free.app", // 添加协议，确保代理格式正确
                 changeOrigin: true,
             },
         },
