@@ -1,9 +1,11 @@
 import React from "react";
 
-const Home = () => {
+import "../../utilities.css";
+
+const HomePage = () => {
     return (
-        <p>Home</p>
+        <h1>Home</h1>
     );
 };
 
-export default Home;
+export default HomePage;

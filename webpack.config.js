@@ -1,15 +1,15 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const entryFile = path.resolve(__dirname, "client", "src", "index.js");
 const outputDir = path.resolve(__dirname, "client", "dist");
 
 module.exports = {
-    entry: entryFile,  // 入口文件
+    entry: entryFile, // 入口文件
     output: {
-        path: outputDir,  // 输出目录
-        publicPath: "/",  // 公共路径
-        filename: "bundle.js",  // 输出的文件名
+        path: outputDir, // 输出目录
+        publicPath: "/", // 使用绝对路径以支持前端路由
+        filename: "bundle.js", // 输出的文件名
     },
     module: {
         rules: [
@@ -17,52 +17,52 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                    name: '[path][name].[ext]', // 保持原有的文件名
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[path][name].[ext]", // 保持原有的文件名
+                        },
                     },
-                },
                 ],
             },
+            // 处理 JavaScript 和 JSX
             {
-                test: /\.(js|jsx)$/,  // 匹配 JavaScript 和 JSX 文件
-                exclude: /node_modules/,  // 排除 node_modules 文件夹
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",  // 使用 Babel loader
+                    loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"],  // Babel 预设
+                        presets: ["@babel/preset-env", "@babel/preset-react"],
                     },
                 },
             },
+            // 处理 CSS 文件
             {
-                test: /\.css$/,  // 处理 CSS 文件
+                test: /\.css$/,
                 use: ["style-loader", "css-loader"],
             },
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],  // 解析文件扩展名
+        extensions: [".js", ".jsx"], // 解析文件扩展名
     },
     devServer: {
-        historyApiFallback: true,
-        static: './client/dist',
-        hot: true,
-        proxy: [
-            {
-                context: ['/api'],
-                target: 'http://47.109.186.111:8088',
+        historyApiFallback: true, // 确保路由回退到 index.html
+        static: path.resolve(__dirname, "client", "dist"), // 指向静态文件目录
+        hot: true, // 开启模块热替换
+        proxy: {
+            "/user/login": {
+                target: "http://117.72.104.77", // 添加协议，确保代理格式正确
                 changeOrigin: true,
-                pathRewrite: { '^/api': '' },
             },
-        ],
-        port: 3000,
+        },
+        port: 3000, // 开发服务器端口
     },
-    mode: 'development',  // 开发模式
+    mode: "development", // 开发模式
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'client', 'dist', 'index.html'),  // 保留现有的 index.html 作为模板
-            inject: false,  // 不自动插入脚本标签
+            template: path.resolve(__dirname, "client", "dist", "index.html"), // 指向 dist 文件夹中的 index.html
+            inject: true, // 自动插入脚本标签
         }),
     ],
 };

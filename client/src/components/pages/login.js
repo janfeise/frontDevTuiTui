@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Login } from '../modules/Label.js';
 import { Button } from '../modules/Button.js';
 import { LOGO } from '../modules/LOGO.js';
 import { TextLinkTo } from '../modules/TextLinkTo.js';
-import { register } from './register.js';
+import { Title } from "../modules/title.js";
 
 import { post } from "../../utilities.js";
 import "../../utilities.css"
 import "./login.css";
 
-const LoginComponent = () => {
+/* 
+* 实现登录页面
+*
+* Proptypes
+* @param {() => void} handleToken: 更新token的函数
+*/
+
+const LoginPage = (props) => {
     // 记录账户和密码
     const [value_user, set_value_user] = useState("");
     const [value_password, set_value_password] = useState("");
+    const [redirectToHome, setRedirectToHome] = useState(false); // 页面跳转
 
     // 更新value：用户名和密码
     const handleUserChange = (event) => {
@@ -30,30 +38,69 @@ const LoginComponent = () => {
 
     // 提交登录数据给后端
     const handleClick = (account, password) => {
-        console.log("用户名：" + account);
-        console.log("密码：" + password);
+        const body = {
+            "password": password,
+            "userAccount": account 
+        }
+
+        // 将后端返回的token存储起来，props.handleToken，如果登录成功返回主页
+        post("/user/login", body).then(response => {
+            // 1. 从Headers获取token
+            // 获取 Authorization 头
+            const authorizationHeader = response.headers.get('Authorization');
+            
+            if (authorizationHeader) {
+                // 提取 Bearer token
+                const token = authorizationHeader.split(' ')[1]; // 分割出 token 部分
+                
+                // 2. 更新token
+                props.handleToken(token);
+
+                // 3. 跳转主页
+                setRedirectToHome(true); // 设置跳转标志为 true
+            } 
+            else 
+            {
+                alert("登录失败，请检查用户名和密码");
+            }
+        });
     };
 
+    useEffect(() => {
+        if (redirectToHome) {
+            return <Navigate to="/" />;
+        }
+    }, [ redirectToHome ]);
+    
+
     return (
-        <div className='u-flex u-flex-column u-flex-alignCenter u-flex-justifyCenter full-div'>
-            <LOGO />
-            <form className="u-flex u-flex-column u-flex-alignCenter  login-form">
-                <div className="u-flex u-flex-column u-flex-alignCenter">
-                    <p className='u-fontLargeSpacing u-fontFamily'>登录</p>
-                    <Login value_user={value_user} value_password={value_password} 
-                        onUserChange={handleUserChange}
-                        onPasswordChange={handlePasswordChange} 
-                        className="Login"/>
-                    <Button TEXT="登录" handleClick={handleClick} account={value_user} password={value_password} />
-                </div>
-                {/* 跳转注册页面 */}
-                <div className='u-bold register'>
-                    <span className="u-bold">新用户？</span>
-                    <TextLinkTo content="马上注册" />
-                </div>
-            </form>
+        <div className='u-flex u-flex-column u-flex-alignCenter u-backColor fullDiv'>
+            <div>
+                <LOGO />
+            </div>
+            <div>
+                <form className="u-flex u-flex-column u-flex-alignCenter login-form">
+                    <Title display="登录"/>
+                        <Login value_user={value_user} value_password={value_password} 
+                            onUserChange={handleUserChange}
+                            onPasswordChange={handlePasswordChange} 
+                            className="Login"/>
+                        <Button 
+                        TEXT="登录" 
+                        handleClick={handleClick} 
+                        account={value_user} 
+                        password={value_password} />
+                    {/* 跳转注册页面 */}
+                    <div className='toLogin'>
+                        <span className="u-bold">新用户？</span>
+                        <Link to="/register">
+                            <TextLinkTo content="马上注册" />
+                        </Link>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
 
-export default LoginComponent;
+export default LoginPage;

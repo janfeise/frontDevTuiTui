@@ -1,40 +1,19 @@
-/* 选择第一个div */
-.full-div
+.fullDiv
 {
-    width: 100vw;   /* 宽度占满页面 */
-    height: 100vh;  /* 高度占满页面 */
-    background-color: #F4F6F9;
+    height: 100vh;
 }
 
 .login-form
 {
-    width: 420px;
-    height: 600px;
+    width: 400px;
+    height: 450px;
     border-radius: 8px;         /* 设置圆角，15px */
     background-color: white;
-    border-top: 3px solid #6777EF;
-    margin-top: -2vh; /* 距离LOGO的距离 */
-    margin-bottom: 8vh;
+    border-top: 3px solid #6777EF; /* 边框顶部样式 */
+    border-bottom: 3px solid #6777EF; /* 边框顶部样式 */
 }
 
-/* 选择第一个p标签 */
-.login-form :first-child :first-child
+.toLogin
 {
-    margin-top: 3vh;
-    margin-left: 2vh;
-    margin-bottom: 3vh;
-    font-size: calc(var(--l) * 1.2);
-    font-weight: bold;
-    color: #6777EF;
-}
-
-
-.Login
-{
-    border-top: 1px solid #ccc;
-}
-
-.register
-{
-    margin-top: 5vh;
+    margin-top: var(--m);
 }

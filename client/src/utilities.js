@@ -1,3 +1,6 @@
+// 获取浏览器存储的token
+const TOKEN = localStorage.getItem("token");
+
 /* 
     格式化参数
     ex: formatParams({ some_key: "some_value", a: "b"}) => "some_key=some_value&a=b"
@@ -34,7 +37,7 @@ function convertToJSON(res)
 
 export function get(endpoint, params = {})
 {
-    const fullPath =  "/api" + endpoint + "?" + formatParams(params);
+    const fullPath = endpoint + "?" + formatParams(params);
     return fetch(fullPath)
     .then(convertToJSON)
     .catch((error) => {
@@ -44,9 +47,13 @@ export function get(endpoint, params = {})
 
 export function post(endpoint, params = {})
 {
-    return fetch("/api" + endpoint, {
+    return fetch(endpoint, {
         method: "post",
-        headers: { "Content-type": "application/json" },
+        headers: { 
+            "User-Agent": 'test',
+            "Content-type": "application/json",
+            ...(TOKEN ? {Authorization: `Bearer ${TOKEN}`} : {}),
+        },
         body: JSON.stringify(params),
     })
     .then(convertToJSON)
