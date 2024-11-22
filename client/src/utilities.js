@@ -21,17 +21,10 @@ function convertToJSON(res)
         throw `API request failed with response status ${res.status} and text: ${res.statusText}`;
     }
     
-    // 克隆响应并读取响应文本
-    return res.clone()
-        .text()  // 获取响应文本
-        .then(text => {
-            try {
-                // 尝试将文本解析为 JSON
-                return JSON.parse(text);
-            } catch (error) {
-                // 如果解析失败，抛出错误
-                throw `API request's result could not be converted to a JSON object: \n${text}`;
-            }
+    // 直接返回响应体的 JSON 数据
+    return res.json()
+        .catch(error => {
+            throw `API request's result could not be converted to a JSON object: \n${error}`;
         });
 }
 
@@ -55,9 +48,22 @@ export function post(endpoint, params = {})
             ...(TOKEN ? {Authorization: `Bearer ${TOKEN}`} : {}),
         },
         body: JSON.stringify(params),
+        credentials: "include", // 将 Cookies 和认证信息发送给服务器
     })
-    .then(convertToJSON)
+    .then(response => {
+        // 获取 Authorization 头
+        const authorizationHeader = response.headers.get('Authorization');
+        if (authorizationHeader) 
+        {
+            const token = authorizationHeader.split(' ')[1]; // 提取 token 部分
+            return response.json().then(data => ({ data, token })); // 同时返回数据和 token
+        } 
+        else 
+        {
+            return response.json().then(data => ({ data }));
+        }
+    })
     .catch(error => {
-        throw `POST request to ${endpoint} failed with error:\n${error}`;
-    })
+        throw new Error(`POST request to ${endpoint} failed: ${error}`);
+    });
 }

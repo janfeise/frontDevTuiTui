@@ -163,3 +163,11 @@ body, html
 {
     display: inline;
 }
+
+.u-viewCenter
+{
+    position: fixed; /* 固定位置 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    z-index: 999; /* 确保弹窗显示在页面最上层 */
+}

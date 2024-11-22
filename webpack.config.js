@@ -51,8 +51,8 @@ module.exports = {
         static: path.resolve(__dirname, "client", "dist"), // 指向静态文件目录
         hot: true, // 开启模块热替换
         proxy: {
-            "/user/login": {
-                target: "https://60d5-117-174-11-178.ngrok-free.app", // 添加协议，确保代理格式正确
+            "/user": {
+                target: "http://117.72.104.77", // 添加协议，确保代理格式正确
                 changeOrigin: true,
             },
         },
