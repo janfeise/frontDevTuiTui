@@ -20,7 +20,7 @@ const Label = (props) => {
                 {props.display}
                 <input type={props.type} name={props.name} placeholder={props.defaultText} 
                 value={props.value} onChange={props.onChange} 
-                className="Label-input u-width u-height u-border u-fontSize"/>
+                className="Label-input u-width u-height u-border u-fontSize input-maxLength"/>
                 <span className="errorMessage">{props.right}</span>
             </label>
         </div>
