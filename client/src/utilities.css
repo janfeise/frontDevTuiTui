@@ -54,6 +54,11 @@ body, html
     justify-content: space-between;
 }
 
+.u-flex-1
+{
+    flex: 1;
+}
+
 .u-shadow
 {
     border: 2px solid #333; /* 边框 */

@@ -1,15 +1,17 @@
+/**
+ * 导航栏
+ */
+
+/* 导入react */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/* 导入样式 */
+import "./NavBar.css";
+
 const NavBar = () => {
     return (
-        <div>
-            <Link to="/">
-                Home
-            </Link>
-            <Link to="/login">
-                Login
-            </Link>
+        <div className='NavBar'>
         </div>
     );
 };

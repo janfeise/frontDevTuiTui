@@ -9,5 +9,6 @@
         "editor.autoClosingBrackets": "languageDefined"
     },
     "jsdoc.Author": "Tilex",
-    "jsdoc.EnabledDate": true
+    "jsdoc.EnabledDate": true,
+    "git.ignoreLimitWarning": true
 }

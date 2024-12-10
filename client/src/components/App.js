@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import NavBar from "./modules/NavBar";
 import LoginPage from "./pages/login";
-import { RegisterPage } from "./pages/register";
+import RegisterPage from "./pages/register";
 import HomePage from "./pages/home";
 
 import "../utilities.css";

@@ -31,7 +31,14 @@ function convertToJSON(res)
 export function get(endpoint, params = {})
 {
     const fullPath = endpoint + "?" + formatParams(params);
-    return fetch(fullPath)
+    return fetch(fullPath, {
+        method: "GET",
+        headers: {
+            "User-Agent": 'test',
+            "Content-type": "application/json",
+            ...(TOKEN ? {Authorization: `Bearer ${TOKEN}`} : {}),
+        }
+    })
     .then(convertToJSON)
     .catch((error) => {
         throw `GET request to ${fullPath} failed with error: \n${error}`
