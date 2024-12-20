@@ -1,3 +1,10 @@
+/**
+ * 实现登录页面
+ *
+ * Proptypes: 父组件为App.js
+ * @param {() => void} handleToken: 更新token的函数
+ */
+
 // 导入react
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
@@ -21,7 +28,6 @@ import "./login.css";
  * Proptypes: 父组件为App.js
  * @param {() => void} handleToken: 更新token的函数
  */
-
 const LoginPage = (props) => {
   // 记录账户和密码
   const [value_user, set_value_user] = useState(""); // 账户

@@ -1,3 +1,7 @@
+/**
+ * 实现组件：一个label和一个输入框；并利用组件实现注册和登录的表单
+ */
+
 import React, { useEffect, useState } from "react";
 
 import "./Label.css"
@@ -8,7 +12,7 @@ import "../../utilities.css"
 * @param {string} defaultText 输入框的默认值
 * @param {string} display label标签名：用户名？密码？
 * @param {string} name 将数据传递给后端时必须指定name
-* @param {string} value
+* @param {string} value: event.target.value
 * @param {(value) => {setValue}} onChange: 一个函数
 * @param {string} errorMessage: 当账户名已被注册时（或者确认密码错误时）显示
 * @param {sting} right: 判断账户是否已存在？两次输入的密码是否正确？不正确则显示错误信息
