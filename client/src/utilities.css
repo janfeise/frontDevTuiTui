@@ -3,6 +3,15 @@
 */
 :root 
 {
+    /* 已使用的color */
+    --themeColor: #9EC6F8; /* 主题色 */
+    --themeDarkColor: #6777EF; /* 深主题色 */
+    --backgroundColorOfGrey: #F3F5FA; /* 背景色：浅灰色 */
+    --white: white; /* 白色 */
+    --errorInfoColor: #D9534F; /* 显示错误信息的颜色（如弹窗文字颜色） */
+    
+
+
      /* color */
      --blue-light: #ADD8E6;    /* 浅蓝色 */
      --blue-medium: #0000FF;   /* 标准蓝色 */
@@ -18,7 +27,9 @@
      --xs: 4px;
      --s: 8px;
      --m: 16px;
+     --ml: 20px;
      --l: 24px;
+     --xl: 32px;
 }
 
 body, html

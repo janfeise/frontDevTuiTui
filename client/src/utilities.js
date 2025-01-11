@@ -1,5 +1,5 @@
 // 获取浏览器存储的token
-const TOKEN = localStorage.getItem("token");
+const TOKEN = localStorage.getItem("TuiTui");
 
 /* 
     格式化参数
@@ -36,6 +36,7 @@ export function get(endpoint, params = {})
         headers: {
             "User-Agent": 'test',
             "Content-type": "application/json",
+            "Accept": "application/json",
             ...(TOKEN ? {Authorization: `Bearer ${TOKEN}`} : {}),
         }
     })
@@ -74,3 +75,12 @@ export function post(endpoint, params = {})
         throw new Error(`POST request to ${endpoint} failed: ${error}`);
     });
 }
+
+/**
+* 延迟函数：模仿sleep(1000)
+* 
+* @param {Number} ms - 毫秒
+*/
+export const delay = async (ms) => new Promise((resolve) => {
+ setTimeout(resolve, ms);
+});

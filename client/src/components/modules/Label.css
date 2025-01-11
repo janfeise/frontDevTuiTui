@@ -18,8 +18,3 @@
 {
     margin-bottom: calc(var(--m) * 0.8);
 }
-
-.input-maxLength
-{
-    width: 12ch;
-}

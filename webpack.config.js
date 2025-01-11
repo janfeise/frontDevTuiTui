@@ -13,17 +13,17 @@ module.exports = {
     },
     module: {
         rules: [
-            // 处理图片
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: {
-                            name: "[path][name].[ext]", // 保持原有的文件名
-                        },
-                    },
-                ],
+              test: /\.(png|jpe?g|gif)$/i,  // 处理图片文件
+              use: [
+                {
+                  loader: 'url-loader',
+                  options: {
+                    limit: 8192,  // 小于 8KB 的图片会被转换为 Data URL
+                    name: '[name].[hash:8].[ext]',
+                  },
+                },
+              ],
             },
             // 处理 JavaScript 和 JSX
             {
@@ -54,6 +54,8 @@ module.exports = {
             "/": {
                 target: "http://117.72.104.77", // 添加协议，确保代理格式正确
                 changeOrigin: true,
+                security: false,
+                secure: false, // 如果是自签名证书，设置为 false
             },
         },
         port: 3000, // 开发服务器端口
@@ -62,7 +64,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "client", "dist", "index.html"), // 指向 dist 文件夹中的 index.html
-            inject: true, // 自动插入脚本标签
+            inject: false, // 自动插入脚本标签
         }),
     ],
 };

@@ -18,6 +18,9 @@ import { Title } from "../modules/title.js";
 import { POP } from "../modules/POP.js";
 import { post } from "../../utilities.js";
 
+// 导入：delay function
+import { delay } from "../../utilities.js";
+
 // 导入css
 import "../../utilities.css";
 import "./login.css";
@@ -34,13 +37,14 @@ const LoginPage = (props) => {
   const [value_password, set_value_password] = useState(""); // 密码
   const [redirectToHome, setRedirectToHome] = useState(false); // 页面跳转
   const [errInfos, setErrInfos] = useState([]); // 存储多个错误信息，弹窗POP组件显示每个错误信息
+  const [isloading, setLoading] = useState(false); // 点击登录按钮向后端发生请求时，显示加载项？
 
   // 更新value：用户名和密码
-  const handleUserChange = (event) => {
-    set_value_user(event.target.value);
+  const handleUserChange = (value) => {
+    set_value_user(value);
   };
-  const handlePasswordChange = (event) => {
-    set_value_password(event.target.value);
+  const handlePasswordChange = (value) => {
+    set_value_password(value);
   };
 
   // 进入页面时渲染title：
@@ -101,17 +105,35 @@ const LoginPage = (props) => {
       userAccount: account,
     };
 
+    // loading
+    setLoading(true);
+
+    // 发生请求
     post("/user/login", body).then((res) => {
       const { data, token } = res;
       // 登录成功
       if (data.code == "200") {
-        props.handleToken(token);
-        setErrInfos([]); // 情况错误信息
-        setRedirectToHome(true);
+        // 显示登录成功
+        const showSuccess = async () => {
+          setErrInfos((prev) => [...prev, "登录成功！！！"]);
+          await delay(1000);
+          setErrInfos([]); // 清空错误信息
+
+          // 页面跳转
+          props.handleToken(token);
+          setRedirectToHome(true);
+        };
+        showSuccess();
       } else {
         setErrInfos((prev) => [...prev, "密码错误！！！"]);
       }
     });
+    // loading
+    const handleLoadingFalse = async () => {
+      await delay(500);
+      setLoading(false);
+    };
+    handleLoadingFalse();
   };
 
   /**
@@ -166,13 +188,23 @@ const LoginPage = (props) => {
             onPasswordChange={handlePasswordChange}
             className="Login"
           />
-          <Button
-            TEXT="登录"
-            handleClick={handleClick}
-            account={value_user}
-            password={value_password}
-          />
+          <div
+            className={`${isloading ? "loginButton loading" : "loginButton"}`}
+          >
+            <Button
+              TEXT="登录"
+              handleClick={handleClick}
+              account={value_user}
+              password={value_password}
+              isloading={isloading}
+            />
+          </div>
           {/* 弹窗 */}
+{/*           <POP
+            key={`${errInfos.length - 1}`}
+            className="u-viewCenter"
+            errInfo={errInfos[errInfos.length - 1]}
+          ></POP> */}
           {errInfos.map((info, index) => (
             <POP key={index} className="u-viewCenter" errInfo={info} />
           ))}

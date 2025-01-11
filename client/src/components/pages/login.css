@@ -26,3 +26,15 @@
 {
     margin-top: var(--m);
 }
+
+/* loading效果实现 */
+.loginButton
+{
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loginButton.loading
+{
+    opacity: 0.5;
+}
