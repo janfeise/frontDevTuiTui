@@ -1,0 +1,15 @@
+:root{
+    --SideBarWidth: 15vw; /* 侧栏宽度 */
+    --minSideBarWidth: 250px; /* 侧栏最小宽度 */
+    --SideBarHeight: 75vh; /* 侧栏高度 */
+}
+
+.SideBar
+{
+    width: var(--SideBarWidth);
+    min-width: var(--minSideBarWidth);
+    height: var(--SideBarHeight);
+    background-color: var(--themeColor);
+    border-radius: 10px;
+    padding: 0;
+}

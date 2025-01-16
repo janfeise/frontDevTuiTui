@@ -1,0 +1,6 @@
+.img-logo
+{
+
+    height: 160px;  /* 设置高度 */
+    margin-bottom: calc(var(--l) * 1.5);
+}

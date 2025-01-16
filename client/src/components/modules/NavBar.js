@@ -2,8 +2,11 @@
  * 实现：导航栏
  */
 // 导入react
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
+
+// 导入全局状态管理的组件
+import { GlobalContext, GlobalStateProvider } from "../context/AppContext.js";
 
 // 导入组件
 import UnderLineDiv from "./UnderLineDiv.js";
@@ -26,6 +29,9 @@ const NAVBAR_ITEMS = ["主页", "找工作", "招聘圈", "关于"];
 const userMenuOptions = ["我的主页", "登出"];
 
 const NavBar = (props) => {
+  // 使用 useContext 来获取全局状态
+  const {TOKEN} = useContext(GlobalContext);
+
   // 配置基础属性：不会发生改变的属性
   // 获取utilities.css文件的root中定义的 CSS 变量
   const root = document.documentElement;
@@ -98,6 +104,9 @@ const NavBar = (props) => {
 
     // 工作页面跳转
     if (NAVBAR_ITEMS[1] === text) {
+      if (!TOKEN) {
+        return <Navigate to="/login" replace />;
+      }     
       navigate("/findJob")
     }
   };

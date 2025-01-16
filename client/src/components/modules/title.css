@@ -1,0 +1,9 @@
+.title
+{
+    margin-top: 3vh;
+    margin-left: 2vh;
+    margin-bottom: 1vh;
+    font-size: calc(var(--l) * 1.2);
+    font-weight: bold;
+    color: #6777EF;
+}

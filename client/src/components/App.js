@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -6,6 +6,12 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
+
+/* 导入全局状态管理的组件 */
+import { GlobalStateProvider, GlobalContext } from "./context/AppContext";
+
+/* 导入后台管理系统 */
+import AdminPanel from "../../../AdminPanel/App";
 
 /* 导入组件 */
 import NavBar from "./modules/NavBar"; // 导航栏组件
@@ -17,17 +23,20 @@ import WorkPage from "./pages/WorkPage";
 import "../utilities.css";
 
 const App = () => {
-  // 从浏览器获取token
-  const [TOKEN, setToken] = useState(!!localStorage.getItem("TuiTui"));
-
   return (
     <Router>
-      <AppWithRouter TOKEN={TOKEN} setToken={setToken} />
+      <GlobalStateProvider>
+        <AppWithRouter />
+      </GlobalStateProvider>
     </Router>
   );
 };
 
-const AppWithRouter = ({ TOKEN, setToken }) => {
+const AppWithRouter = () => {
+  // 使用 useContext 来获取全局状态
+  const { TOKEN, setToken, userIdentity, setUserIdentity } =
+    useContext(GlobalContext);
+
   // 获取当前路由路径
   const location = useLocation();
 
@@ -42,6 +51,7 @@ const AppWithRouter = ({ TOKEN, setToken }) => {
   const handleLogout = () => {
     // 清除本地存储中的 token
     localStorage.removeItem("TuiTui");
+    localStorage.removeItem("userIdentity");
 
     // 清除当前状态中的 token
     setToken(false);
@@ -51,47 +61,56 @@ const AppWithRouter = ({ TOKEN, setToken }) => {
   };
 
   return (
-    <div>
-      {/* 判断当前路径，如果不是登录页面或注册页面则渲染导航栏 */}
-      {location.pathname !== "/login" && location.pathname !== "/register" && (
-        <NavBar handleLogout={handleLogout} />
+    <>
+      {userIdentity !== "2" ? (
+                <>
+                {/* 判断当前路径，如果不是登录页面或注册页面则渲染导航栏 */}
+                {location.pathname !== "/login" &&
+                  location.pathname !== "/register" && (
+                    <NavBar handleLogout={handleLogout} />
+                  )}
+                <Routes>
+                  {/* 主页，如果没有token则跳转登录页面 */}
+                  <Route
+                    path="/"
+                    element={TOKEN ? <HomePage /> : <Navigate to={"/login"} />}
+                  />
+                  {/* 找工作页面 */}
+                  <Route
+                    path="/findJob"
+                    element={
+                      TOKEN ? (
+                        <WorkPage handleLogout={handleLogout} />
+                      ) : (
+                        <Navigate to={"/login"} />
+                      )
+                    }
+                  />
+                  {/* 登录页面：传递回调函数，更新token */}
+                  <Route
+                    path="/login"
+                    element={
+                      TOKEN ? (
+                        <Navigate to={"/"} />
+                      ) : (
+                        <LoginPage
+                          handleToken={handleToken}
+                          setUserIdentity={setUserIdentity}
+                        />
+                      )
+                    }
+                  />
+                  {/* 注册页面 */}
+                  <Route
+                    path="register"
+                    element={TOKEN ? <Navigate to={"/"} /> : <RegisterPage />}
+                  />
+                </Routes>
+              </>
+      ) : (
+        <AdminPanel ></AdminPanel>
       )}
-
-      <Routes>
-        {/* 主页，如果没有token则跳转登录页面 */}
-        <Route
-          path="/"
-          element={TOKEN ? <HomePage /> : <Navigate to={"/login"} />}
-        />
-        {/* 找工作页面 */}
-        <Route
-          path="/findJob"
-          element={
-            TOKEN ? (
-              <WorkPage handleLogout={handleLogout} />
-            ) : (
-              <Navigate to={"/login"} />
-            )
-          }
-        />
-        {/* 登录页面：传递回调函数，更新token */}
-        <Route
-          path="/login"
-          element={
-            TOKEN ? (
-              <Navigate to={"/"} />
-            ) : (
-              <LoginPage handleToken={handleToken} />
-            )
-          }
-        />
-        {/* 注册页面 */}
-        <Route
-          path="register"
-          element={TOKEN ? <Navigate to={"/"} /> : <RegisterPage />}
-        />
-      </Routes>
-    </div>
+    </>
   );
 };
 

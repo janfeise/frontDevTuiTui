@@ -1,0 +1,77 @@
+.info {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  width: 320px;
+  padding: 12px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: #509AF8;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px -3px #111;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* 初始透明度为 0 */
+  visibility: hidden; /* 初始隐藏 */
+  transform-origin: center center; /* 确保变形从中间开始 */
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-out; /* 渐变效果 */
+}
+
+/* 弹窗的图标、标题和关闭按钮的样式 */
+.info__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.info__icon path {
+  fill: #fff;
+}
+
+.info__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--popTextColor);
+}
+
+.info__close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.info__close path {
+  fill: #fff;
+}
+
+/* 弹出动画 */
+@keyframes popupAnimation {
+  0% {
+    transform: translate(-50%, -33vh); /* 初始位置：-33vh，并轻微缩放 */
+    opacity: 0; /* 初始透明度为 0 */
+  }
+  40% {
+    transform: translate(-50%, -33vh); /* 在显示的过程中，微微放大 */
+    opacity: 1; /* 透明度渐变为 1 */
+  }
+  60% {
+    transform: translate(-50%, -33vh); /* 稍微恢复至原始大小 */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -33vh); /* 动画结束时，微小缩放 */
+    opacity: 0; /* 透明度变为 0 */
+    visibility: hidden; /* 隐藏元素 */
+  }
+}
+
+/* 控制弹窗显示和动画 */
+.info.visible {
+  opacity: 1; /* 显示时的透明度 */
+  visibility: visible; /* 确保元素显示 */
+  animation: popupAnimation 3s ease-in-out forwards; /* 启动动画 */
+}

@@ -1,0 +1,53 @@
+:root {
+    --navbar-height: 60px; /* 导航栏高度 */
+    --underlineDivWidth: 80px;/* 导航栏使用的下划线组件的div宽度 */
+    --underlineDivMarginLeft: 20px; /* 导航栏使用的下划线组件的左侧边距*/
+}
+
+.NavBar
+{
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--themeColor);
+    font-weight: 400;
+    color: white;
+}
+
+.left>div
+{
+    margin-left: var(--underlineDivMarginLeft);
+}
+
+.work
+{
+    font-size: var(--underlineFontSize);
+    transition: font-size 0.5s ease;
+}
+
+.work:hover
+{
+    font-size: var(--fontBoldSize);
+}
+
+/* 添加下拉菜单样式 */
+.right .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+  }
+  
+  .right .dropdown-menu li {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .right .dropdown-menu li:hover {
+    background-color: #f0f0f0;
+  }
+  

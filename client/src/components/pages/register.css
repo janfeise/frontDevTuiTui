@@ -1,0 +1,27 @@
+.register-form
+{
+    width: 400px;
+    height: 730px;
+    border-radius: 8px;         /* 设置圆角，15px */
+    background-color: white;
+    margin-top: -4vh; /* 距离LOGO的距离 */
+    margin-bottom: 8vh;
+    border-top: 3px solid #6777EF;
+    border-bottom: 3px solid #6777EF;
+}
+
+.toLog
+{
+    margin-top: var(--m);
+}
+
+.registerButton
+{
+    opacity: 1;
+    transition: opcity 0.5 ease;
+}
+
+.registerButton.loading
+{
+    opacity: 0.5;
+}

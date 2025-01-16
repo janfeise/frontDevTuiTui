@@ -1,0 +1,60 @@
+.container
+{
+    background-color: var(--backgroundColorOfGrey);
+}
+
+.pagination
+{
+    margin-left: 10vh;
+    margin-right: 10vh;
+    margin-bottom: 3vh;
+    flex-wrap: nowrap;
+}
+
+.paginationRange
+{
+    flex-wrap: nowrap;
+}
+
+.arrowContainer
+{
+    margin: 10px;
+    color: #4592FF;
+}
+
+.arrowContainer:hover svg .path1
+{
+    cursor: pointer;
+    fill: #4592FF;
+}
+
+.arrowContainer:hover svg .path2
+{
+    cursor: pointer;
+    fill: rgb(69, 146, 255, 0.5);
+}
+
+.path1
+{
+    fill: #B2B2B2;
+}
+
+.path2
+{
+    fill: #E5E5EF;
+}
+
+.select
+{
+    margin: 15px;
+    width: 100px;
+    font-size: var(--m);
+    border: rgb(128, 128, 128, 0.8) solid 1px;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.select option
+{
+    font-size: var(--m);
+}

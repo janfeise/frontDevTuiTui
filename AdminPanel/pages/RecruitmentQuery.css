@@ -1,0 +1,167 @@
+/* 审核区域优化 */
+.audit-section p,
+.audit-actions {
+    width: 48%; /* 宽度一致 */
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* 垂直居中内容 */
+    justify-content: flex-start;
+    height: 100%; /* 高度统一 */
+}
+
+
+.audit-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.audit-actions {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* 垂直居中内容 */
+    justify-content: space-around; /* 调整单选框间距 */
+    height: 100%; /* 确保高度一致 */
+}
+
+/* 使文本内容布局更加紧凑 */
+.audit-section p:last-child {
+    margin-right: 0;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+}
+
+/* 审核区域按钮 */
+.audit-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.audit-buttons button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #4caf50;
+    border-radius: 50px; /* 圆角设计 */
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    margin-right: 10px;
+}
+
+.audit-buttons button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.audit-buttons button:active {
+    transform: scale(1);
+}
+
+/* 招聘信息表格 */
+.recruitment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.recruitment-table th,
+.recruitment-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.recruitment-table th {
+    background-color: #64b3f4; /* 蓝色背景 */
+    color: white;
+}
+
+/* 操作栏中的审核按钮样式 */
+.recruitment-table td button {
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #4caf50;
+    border-radius: 50px;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.recruitment-table td button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.recruitment-table td button:active {
+    transform: scale(1);
+}
+
+.recruitment-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/* 分页控制 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+}
+/* 标签样式 */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}

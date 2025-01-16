@@ -1,0 +1,13 @@
+.identity
+{
+    text-align: left;
+    line-height: 1.5;
+    background-color: #FDFDFF;
+    margin-top: -1vh;
+}
+
+/* 选项CSS：求职者？在职者？ */
+.option
+{
+    margin-right: calc(var(--l) * 2);
+}

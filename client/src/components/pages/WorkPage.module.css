@@ -1,0 +1,21 @@
+.mainContainer
+{
+    max-height: auto;
+    background-color: var(--backgroundColorOfGrey);
+}
+
+.mainContainer > div
+{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.sideBar
+{
+    margin-top: 100px;
+}
+
+.workContainer
+{
+    min-height: 100vh;
+}

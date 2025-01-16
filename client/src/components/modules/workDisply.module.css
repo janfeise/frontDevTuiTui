@@ -1,0 +1,43 @@
+:root
+{
+    --titleHeight: 100px; /* 找工作页面title高度 */
+}
+
+.mainContent
+{
+    background-color: var(--backgroundColorOfGrey);
+}
+
+.pagination
+{
+    position: relative;
+    bottom: 0;
+    background-color: var(--white);
+    margin-top: 10px;
+}
+
+.title
+{
+    height: var(--titleHeight);
+    font-size: var(--xl);
+    color: red;
+    background-color: var(--white);
+    font-weight: 500;
+}
+
+.works
+{
+    overflow: scroll;
+}
+
+.subTags
+{
+    height: var(--titleHeight);
+    background-color: var(--white);
+}
+
+.subTags > div
+{
+    margin: 10px;
+    cursor: pointer;
+}

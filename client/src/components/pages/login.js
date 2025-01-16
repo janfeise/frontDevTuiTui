@@ -16,7 +16,7 @@ import { LOGO } from "../modules/LOGO.js";
 import { TextLinkTo } from "../modules/TextLinkTo.js";
 import { Title } from "../modules/title.js";
 import { POP } from "../modules/POP.js";
-import { post } from "../../utilities.js";
+import { post, get } from "../../utilities.js";
 
 // 导入：delay function
 import { delay } from "../../utilities.js";
@@ -29,7 +29,8 @@ import "./login.css";
  * 实现登录页面
  *
  * Proptypes: 父组件为App.js
- * @param {() => void} handleToken: 更新token的函数
+ * @param {() => void} handleToken  更新token的函数
+ * @param {Function} setUserIdentity 更新用户身份
  */
 const LoginPage = (props) => {
   // 记录账户和密码
@@ -81,7 +82,6 @@ const LoginPage = (props) => {
    * @param {string} account - 用户名，不能为空。
    * @param {string} password - 密码，不能为空。
    * @returns {void} 没有返回值。
-   *
    * @example
    * handleClick("username123", "password456");
    *
@@ -119,13 +119,31 @@ const LoginPage = (props) => {
           await delay(1000);
           setErrInfos([]); // 清空错误信息
 
+          // 登录成功：在localStorage存储用户信息
+          const params = {
+            token: token,
+          };
+          get("/user/verify", params)
+            .then((res) => {
+              console.log(res);
+              if (res && res.code === 200) {
+                localStorage.setItem("userIdentity", res.data);
+                props.setUserIdentity(res.data);
+              } else {
+                console.log("Failed or no response");
+              }
+            })
+            .catch((error) => {
+              console.log("Request failed:", error);
+            });
+
           // 页面跳转
           props.handleToken(token);
           setRedirectToHome(true);
         };
         showSuccess();
       } else {
-        setErrInfos((prev) => [...prev, "密码错误！！！"]);
+        setErrInfos((prev) => [...prev, "账号或密码错误！！！"]);
       }
     });
     // loading
@@ -200,7 +218,7 @@ const LoginPage = (props) => {
             />
           </div>
           {/* 弹窗 */}
-{/*           <POP
+          {/*           <POP
             key={`${errInfos.length - 1}`}
             className="u-viewCenter"
             errInfo={errInfos[errInfos.length - 1]}
