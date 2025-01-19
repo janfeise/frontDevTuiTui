@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/node_modules": true
+    },
+    "[javascript]": {
+        "editor.autoClosingBrackets": "languageDefined"
+    },
+    "[typescript]": {
+        "editor.autoClosingBrackets": "languageDefined"
+    },
+    "jsdoc.Author": "Tilex",
+    "jsdoc.EnabledDate": true,
+    "git.ignoreLimitWarning": true
+}
