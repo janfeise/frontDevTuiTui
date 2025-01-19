@@ -1,0 +1,18 @@
+.mainContent
+{
+    width: 55vw;
+    min-width: 800px;
+    max-height: 91vh;
+    background-color: white;
+}
+
+.works
+{
+    height: 85vh;
+    overflow: auto;
+}
+
+.pagination
+{
+    margin-bottom: 5px;
+}

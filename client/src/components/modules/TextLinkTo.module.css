@@ -1,0 +1,9 @@
+.text
+{
+    margin-top: 1vh;
+}
+
+.text:hover
+{
+    cursor: pointer;
+}

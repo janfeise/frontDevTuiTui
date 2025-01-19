@@ -1,0 +1,402 @@
+/* 标签管理页面 */
+.tag-management {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+}
+
+/* 侧边栏 */
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tag-item {
+    padding: 10px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* 选中标签的样式 */
+.tag-item.selected {
+    background-color: #c8e6c9;
+    /* 选中时背景色 */
+    border: 2px solid #388e3c;
+    /* 选中时边框颜色 */
+}
+
+/* 如果标签的 status 为 1，则渲染为红色 */
+.tag-item.red {
+    background-color: #fabfc9;
+    /* 红色背景 */
+    color: #d32f2f;
+    /* 红色文字 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 红色标签悬浮效果 */
+.tag-item.red:hover {
+    background-color: #ef9a9a;
+    /* 悬浮时背景色稍微深一些 */
+    color: #b53232;
+    /* 悬浮时文字颜色变得更深 */
+}
+
+/* 选中标签的样式 */
+.tag-item.selected {
+    background-color: #c8e6c9;
+    /* 选中时背景色 */
+    border: 2px solid #388e3c;
+    /* 选中时边框颜色 */
+}
+
+/* 红色标签选中时效果 */
+.tag-item.red.selected {
+    background-color: #ef9a9a;
+    /* 红色标签选中时背景色 */
+    border: 2px solid #d32f2f;
+    /* 选中时红色标签边框颜色 */
+    color: #d32f2f;
+    /* 保持红色文字 */
+}
+
+/* 内容区域 */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sub-tag-display {
+    margin-bottom: 20px;
+}
+
+.sub-tag-display h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sub-tag {
+    padding: 5px 15px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 小标签更新 */
+/* 小标签更新 */
+.sub-tag-update {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sub-tag-update input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.sub-tag-update input:focus {
+    border-color: #4caf50;
+}
+
+.sub-tag-update button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.sub-tag-update button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.sub-tag-update button:active {
+    transform: scale(1);
+}
+
+/* 复选框组样式 */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.checkbox-label input[type="checkbox"]:hover {
+    background-color: #45a049;
+}
+
+
+/* 添加标签输入框 */
+.tag-add-section {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tag-add-section input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.tag-add-section button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.tag-add-section button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.tag-add-section button:active {
+    transform: scale(1);
+}
+
+/* 加载中的提示 */
+.loading {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+/* 小标签 hover 效果 */
+.sub-tag:hover {
+    background-color: #c8e6c9;
+}
+
+.sub-tag.red {
+    background-color: #fabfc9;
+    /* 红色背景 */
+    color: #d32f2f;
+    /* 红色文字 */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 小标签选中样式 */
+.sub-tag.selected {
+    background-color: #c8e6c9;
+    /* 选中时背景色 */
+    border: 2px solid #4caf50;
+    /* 选中时边框颜色 */
+    color: #2e7d32;
+    /* 选中时文字颜色 */
+    font-weight: bold;
+    /* 选中时文字加粗 */
+}
+
+/* 添加新标签区域 */
+.add-tag {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-tag h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.add-tag .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.add-tag label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.add-tag input,
+.add-tag select {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.add-tag input:focus,
+.add-tag select:focus {
+    border-color: #4caf50;
+}
+
+.add-tag .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-tag .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.add-tag .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-tag .checkbox-label input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.add-tag .checkbox-label input[type="checkbox"]:hover {
+    background-color: #45a049;
+}
+
+.add-tag button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.add-tag button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.add-tag button:active {
+    transform: scale(1);
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.searchContainer>input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.search-section button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.search-results {
+    margin-top: 5px;
+}
+
+.search-result-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.search-result-item button {
+    padding: 5px 5px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

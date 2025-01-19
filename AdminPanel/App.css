@@ -1,0 +1,112 @@
+/* 全局样式 */
+.App {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 顶部标题和头像 */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #64b3f4; /* 浅蓝色背景 */
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加标题阴影，使其更加突出 */
+}
+
+.user-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    border-color: #007bff; /* 鼠标悬浮时头像边框颜色 */
+}
+
+/* 下拉菜单 (悬浮时显示登出按钮) */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.user-profile:hover .dropdown {
+    display: block;
+}
+
+.logout-button {
+    background-color: white;
+    color: #007bff; /* 按钮文字为蓝色 */
+    border: 2px solid #007bff; /* 蓝色边框 */
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #007bff; /* 蓝色背景 */
+    color: white; /* 文字变为白色 */
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: #7ab8f5; /* 浅蓝色 */
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar li {
+    cursor: pointer;
+    padding: 10px 15px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.navbar li.active,
+.navbar li:hover {
+    background-color: #4a9ed9; /* 稍深的蓝色 */
+    border-radius: 5px;
+}
+
+/* 页面内容样式 */
+.page-content {
+    padding: 20px;
+}

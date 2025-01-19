@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-class-properties": "^7.25.9",
+    "antd": "^5.22.3",
+    "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
@@ -20,10 +25,11 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "babel-loader": "^9.2.1",
-    "html-webpack-plugin": "^5.6.3",
+    "file-loader": "^6.2.0",
     "react-app-rewired": "^2.2.1",
+    "url-loader": "^4.1.1",
     "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
-  }
+    "webpack-cli": "^5.1.4"
+  },
+  "proxy": "http://117.72.104.77"
 }

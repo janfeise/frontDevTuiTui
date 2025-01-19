@@ -1,0 +1,31 @@
+.base
+{
+    font-size: var(--m);
+    width: max-content;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    border: solid 1px rgb(238, 232, 232);
+    margin: 10px;
+}
+
+.base:hover
+{
+    cursor: pointer;
+    border-color: #4592FF;
+    background-color: rgb(240, 240, 240, 0.6);
+}
+
+.active
+{
+    color: white;
+    background-color: #4592FF;
+}
+
+/* 当已经选中某个页码时，鼠标悬浮时不会触发前面的.base:hover
+*  使得背景颜色发生改变
+*/
+.base.active:hover
+{
+    background-color: #4592FF;
+}

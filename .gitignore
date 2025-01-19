@@ -1,1 +1,7 @@
 node_modules/
+我的计划.xlsx
+TuiTui.xlsx
+
+**/node_modules/
+/.vscode/
+/.devcontainer

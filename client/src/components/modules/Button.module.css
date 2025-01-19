@@ -1,0 +1,28 @@
+.button
+{
+    border-radius: 10px; /* 圆角设置 */
+    background-color: #589ef8; /* 填充颜色 */
+    color: white; /* 字体颜色 */
+    border: none;
+    margin-top: 2vh;
+    font-size: var(--ml);
+    position: relative;
+}
+
+.button:hover
+{
+    background-color: var(--themeDarkColor);
+    cursor: pointer;
+}
+
+.loading
+{
+    margin-top: 0px;
+    margin-right: 100px;
+    position: absolute;
+}
+
+.text
+{
+    position: absolute;
+}
