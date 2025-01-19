@@ -26,7 +26,7 @@ npm list -g webpack
 如果出现类似以下输出，表示已安装：
 
 ```
-bash复制编辑git version 2.47.1.windows.2
+git version 2.47.1.windows.2
 v22.13.0
 10.9.2
 +-- webpack-cli@6.0.1
