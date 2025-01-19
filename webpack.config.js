@@ -50,14 +50,14 @@ module.exports = {
         historyApiFallback: true, // 确保路由回退到 index.html
         static: path.resolve(__dirname, "client", "dist"), // 指向静态文件目录
         hot: true, // 开启模块热替换
-        proxy: {
-            "/": {
-                target: "http://117.72.104.77", // 添加协议，确保代理格式正确
+        proxy: [
+            {
+                context: ["/"],  // 匹配所有请求
+                target: "http://117.72.104.77", // 添加协议，代理
                 changeOrigin: true,
-                security: false,
                 secure: false, // 如果是自签名证书，设置为 false
             },
-        },
+        ],
         port: 3000, // 开发服务器端口
     },
     mode: "development", // 开发模式
