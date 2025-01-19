@@ -128,10 +128,11 @@ const NavBar = (props) => {
           {/* LOGOIcon */}
           <img
             style={{
-              width: "120px",
+              width: "140px",
               height: "40px",
               borderRadius: "10px", // 圆角
               margin: "10px",
+              marginRight: "-10px",
             }}
             src={HomoLogo}
             alt="HomeLogo"
