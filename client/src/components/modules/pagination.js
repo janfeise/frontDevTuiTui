@@ -102,9 +102,9 @@ const PaginationCustom = (props) => {
   return (
     <>
       <div className="u-flex u-flex-justifyCenter container">
-        <div className="u-flex pagination">
+        <div className="u-flex u-flex-justifyCenter pagination">
           {/* 左箭头 */}
-          <div className="arrowContainer" onClick={handleLeftArrow}>
+          <div className="arrow arrowContainer" onClick={handleLeftArrow}>
             <svg
               t="1733919981170"
               viewBox="0 0 1024 1024"
@@ -142,7 +142,7 @@ const PaginationCustom = (props) => {
           </div>
 
           {/* 右箭头 */}
-          <div className="arrowContainer" onClick={handleRightArrow}>
+          <div className="arrow arrowContainer" onClick={handleRightArrow}>
             <svg
               className="arrow"
               t="1733920050872"
