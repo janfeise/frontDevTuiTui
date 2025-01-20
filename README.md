@@ -2,6 +2,39 @@
 
 前端开发 TuiTui 项目的文档
 
+## 技术栈
+
+- react
+- js（纯js，没有用typescript)
+- 打包：webpack
+
+## 项目结构
+
+```markdown
+TuiTui/
+├── AdminPanel            # 后台管理系统
+├── client                # TuiTui 项目开发文件夹
+│   ├── dist              # 打包生成的文件夹（构建输出）
+│   ├── public            # 存放图片等静态资源文件
+│   ├── src               # 项目源代码开发文件夹
+│   │   ├── components    # React 组件
+│   │   │   ├── context   # 全局状态管理（如 Redux 或 Context API）
+│   │   │   ├── modules   # 组件模块（按功能组织的子模块）
+│   │   │   └── pages     # 页面组件
+│   │   ├── App.js        # 组织 React 项目的文件【关键文件】
+│   │   ├── index.js      # 挂载 React 框架
+│   │   ├── utilities.css # 常用样式【避免重复造轮子】
+│   │   └── utilities.js  # 常用方法【避免重复造轮子】
+├── .babelrc              # Babel 配置文件，用于 JavaScript 转译
+├── .gitignore            # Git 忽略文件
+├── README.md             # 项目说明文档
+├── package-lock.json     # 项目依赖锁定文件
+├── package.json          # 项目配置文件
+└── webpack.config.js     # webpack 配置文件
+```
+
+
+
 ## 步骤
 
 在终端（或者在 VS Code 中打开项目文件夹）中运行以下命令：
@@ -82,29 +115,3 @@ npx webpack serve
 ```bash
 npm run build
 ```
-
-## 项目结构
-
-```markdown
-TuiTui/
-├── AdminPanel            # 后台管理系统
-├── client                # TuiTui 项目开发文件夹
-│   ├── dist              # 打包生成的文件夹（构建输出）
-│   ├── public            # 存放图片等静态资源文件
-│   ├── src               # 项目源代码开发文件夹
-│   │   ├── components    # React 组件
-│   │   │   ├── context   # 全局状态管理（如 Redux 或 Context API）
-│   │   │   ├── modules   # 组件模块（按功能组织的子模块）
-│   │   │   └── pages     # 页面组件
-│   │   ├── App.js        # 组织 React 项目的文件【关键文件】
-│   │   ├── index.js      # 挂载 React 框架
-│   │   ├── utilities.css # 常用样式【避免重复造轮子】
-│   │   └── utilities.js  # 常用方法【避免重复造轮子】
-├── .babelrc              # Babel 配置文件，用于 JavaScript 转译
-├── .gitignore            # Git 忽略文件
-├── README.md             # 项目说明文档
-├── package-lock.json     # 项目依赖锁定文件
-├── package.json          # 项目配置文件
-└── webpack.config.js     # webpack 配置文件
-```
-
