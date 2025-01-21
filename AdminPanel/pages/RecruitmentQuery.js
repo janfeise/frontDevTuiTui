@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./RecruitmentQuery.module.css";
+import style from "./RecruitmentQuery.module.css";
 
 const RecruitmentQuery = () => {
   const [recruitments, setRecruitments] = useState([]);
@@ -126,12 +126,12 @@ const RecruitmentQuery = () => {
   };
 
   return (
-    <div className={`${style.recruitment-query}`}>
+    <div className={`${style["recruitment-query"]}`}>
       <h1>招聘信息审核</h1>
 
       {/* 审核区域 */}
       {selectedRecruitment && (
-        <div className={`${style.audit-section}`}>
+        <div className={`${style["audit-section"]}`}>
           <h2>审核招聘信息</h2>
           <p>职位名称: {selectedRecruitment.publishTitle}</p>
           <p>职位简介: {selectedRecruitment.briefIntroduction}</p>
@@ -158,7 +158,7 @@ const RecruitmentQuery = () => {
             截止时间: {new Date(selectedRecruitment.recruitmentDeadline).toLocaleDateString()}
           </p>
 
-          <div className={`${style.audit-actions}`}>
+          <div className={`${style["audit-actions"]}`}>
             <label>
               <input
                 type="radio"
@@ -207,7 +207,7 @@ const RecruitmentQuery = () => {
             </>
           )}
 
-          <div className={`${style.audit-buttons}`}>
+          <div className={`${style["audit-buttons"]}`}>
             <button onClick={handleAudit}>提交审核</button>
             <button onClick={cancelAudit}>取消</button>
           </div>
@@ -218,7 +218,7 @@ const RecruitmentQuery = () => {
 
       {!loading && (
         <>
-          <table className={`${style.recruitment-table}`}>
+          <table className={`${style["recruitment-table"]}`}>
             <thead>
               <tr>
                 <th>职位名称</th>
