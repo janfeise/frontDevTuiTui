@@ -6,8 +6,11 @@
  */
 
 // 导入react
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
+
+/* 导入全局状态管理的组件 */
+import { GlobalStateProvider, GlobalContext } from "../context/AppContext";
 
 // 导入组件
 import { Login } from "../modules/Label.js";
@@ -33,6 +36,12 @@ import "./login.css";
  * @param {Function} setUserIdentity 更新用户身份
  */
 const LoginPage = (props) => {
+    // 使用 useContext 来获取全局状态
+    const { userName, setUserName, userAccount, setUserAccount,
+      userEmail, setUserEmail
+     } =
+    useContext(GlobalContext);
+
   // 记录账户和密码
   const [value_user, set_value_user] = useState(""); // 账户
   const [value_password, set_value_password] = useState(""); // 密码
@@ -136,6 +145,11 @@ const LoginPage = (props) => {
             .catch((error) => {
               console.log("Request failed:", error);
             });
+
+            // 获取用户基本信息
+            setUserAccount(data.data.userAccount);
+            setUserName(data.data.userName);
+            setUserEmail(data.data.email);
 
           // 页面跳转
           props.handleToken(token);

@@ -1,0 +1,48 @@
+.profileSideMenu
+{
+    /* TODO */
+}
+
+.profileSideMenu__userAvatarContainer
+{
+    margin-top: 50px;
+}
+
+.profileSideMenu__userAvatar
+{
+    width: 70px;
+    height: auto;
+}
+
+.profileSideMenu__container
+{
+    text-align: center;
+}
+
+.profileSideMenu__container > div
+{
+    width: var(--menu-width);
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileSideMenu__container > div:first-child
+{
+    margin-top: 25px;
+}
+
+.profileSideMenu--active,
+.profileSideMenu__container > div:hover
+{
+    cursor: pointer;
+    color: var(--themeDarkColor);
+    background-color: var(--themeLightColor);
+    border-left: 2px solid var(--themeDarkColor);
+}
+
+.profileSideMenu__userAccount
+{
+    color: var(--darkGrey);
+}

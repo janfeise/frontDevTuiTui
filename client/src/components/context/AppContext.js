@@ -24,6 +24,21 @@ const GlobalStateProvider = ({ children }) => {
    */
   const [userIdentity, setUserIdentity] = useState(-1);
 
+  /**
+   * 用户名
+   */
+  const [userName, setUserName] = useState("");
+
+  /**
+   * 用户账号
+   */
+  const [userAccount, setUserAccount] = useState("");
+
+  /**
+   * 用户邮箱
+   */
+  const [userEmail, setUserEmail] = useState("");
+
   // 当 TOKEN 和 userIdentity 变化时，获取用户身份
   useEffect(() => {
     if (TOKEN) {
@@ -40,7 +55,7 @@ const GlobalStateProvider = ({ children }) => {
             localStorage.removeItem("userIdentity");
             console.log("请求失败或无响应");
             // 刷新页面
-            window.location.reload();  // 强制刷新
+            window.location.reload(); // 强制刷新
             alert("TOKEN错误！！！");
           }
         })
@@ -54,7 +69,18 @@ const GlobalStateProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ TOKEN, setToken, userIdentity, setUserIdentity }}
+      value={{
+        TOKEN,
+        setToken,
+        userIdentity,
+        setUserIdentity,
+        userName,
+        setUserName,
+        userAccount,
+        setUserAccount,
+        userEmail,
+        setUserEmail,
+      }}
     >
       {children}
     </GlobalContext.Provider>

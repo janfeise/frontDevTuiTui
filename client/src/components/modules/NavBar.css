@@ -11,22 +11,12 @@
     background-color: var(--themeColor);
     font-weight: 400;
     color: white;
+    box-shadow: 0 4px 9px rgba(47, 49, 48, .1);
 }
 
 .left>div
 {
     margin-left: var(--underlineDivMarginLeft);
-}
-
-.work
-{
-    font-size: var(--underlineFontSize);
-    transition: font-size 0.5s ease;
-}
-
-.work:hover
-{
-    font-size: var(--fontBoldSize);
 }
 
 /* 添加下拉菜单样式 */
@@ -35,7 +25,7 @@
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-left: 75px;
     padding: 0;
     list-style: none;
     z-index: 1000;
@@ -51,3 +41,50 @@
     background-color: #f0f0f0;
   }
   
+.profile-container
+{
+    /* TODO */
+    height: var(--navbar-height);
+    margin: 0px 40px;
+}
+
+.profile-container:hover
+{
+    cursor: pointer;
+}
+
+.profile-avatar-box
+{
+    /* TODO */
+    color: var(--themeColor);
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+.profile-avatar
+{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.profile-info-box
+{
+    /* TODO */
+}
+
+.profile-name
+{
+    display: block;
+    font-size: var(--m);
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.profile-account
+{
+    display: block;
+    font-size: var(--m);
+    color: var(--grey);
+}

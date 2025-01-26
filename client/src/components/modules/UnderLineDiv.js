@@ -54,7 +54,7 @@ const UnderLineDiv = ({
       onClick={handleClick}
     >
       <span className={style.text} style={{ color: textColor,
-        "letter-spacing": "2px",
+        "letterSpacing": "2px",
        }}>
         {text}
       </span>

@@ -1,0 +1,32 @@
+:root
+{
+    --menu-width: 220px;
+    --main-width: 840px;
+}
+
+.profileContainer
+{
+    width: 100vw;
+    background-color: var(--backgroundColorOfGrey);
+}
+
+.profileMenuContainer
+{
+    width: var(--menu-width);
+    height: 90vh;
+    background-color: var(--white);
+    margin: 20px 15px auto 140px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.profileDetailes
+{
+    width: var(--main-width);
+    height: 100vh;
+    background-color: var(--white);
+    margin: 20px 90px 30px 0;
+    border-radius: 5px;
+}

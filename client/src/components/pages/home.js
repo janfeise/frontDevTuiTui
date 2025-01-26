@@ -6,9 +6,7 @@
 import React from "react";
 
 /* 导入组件 */
-import NavBar from "../modules/NavBar";
-import SideBar from "../modules/SideBar";
-import WorkDisply from "../modules/WorkDisply";
+import Footer from "../modules/Footer";
 
 /* 导入样式 */
 import "../../utilities.css";
@@ -18,7 +16,6 @@ const HomePage = (props) => {
     return (
         <>
             <div className="u-flex u-flex-column homepage">
-                
                 <div>Home Page</div>
             </div>
         </>

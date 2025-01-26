@@ -19,6 +19,9 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import HomePage from "./pages/home";
 import WorkPage from "./pages/WorkPage";
+import Footer from "./modules/Footer";
+import Profile from "./pages/profile";
+import JobCircle from "./pages/JobCircle";
 
 import "../utilities.css";
 
@@ -63,53 +66,68 @@ const AppWithRouter = () => {
   return (
     <>
       {userIdentity !== "2" ? (
-                <>
-                {/* 判断当前路径，如果不是登录页面或注册页面则渲染导航栏 */}
-                {location.pathname !== "/login" &&
-                  location.pathname !== "/register" && (
-                    <NavBar handleLogout={handleLogout} />
-                  )}
-                <Routes>
-                  {/* 主页，如果没有token则跳转登录页面 */}
-                  <Route
-                    path="/"
-                    element={TOKEN ? <HomePage /> : <Navigate to={"/login"} />}
-                  />
-                  {/* 找工作页面 */}
-                  <Route
-                    path="/findJob"
-                    element={
-                      TOKEN ? (
-                        <WorkPage handleLogout={handleLogout} />
-                      ) : (
-                        <Navigate to={"/login"} />
-                      )
-                    }
-                  />
-                  {/* 登录页面：传递回调函数，更新token */}
-                  <Route
-                    path="/login"
-                    element={
-                      TOKEN ? (
-                        <Navigate to={"/"} />
-                      ) : (
-                        <LoginPage
-                          handleToken={handleToken}
-                          setUserIdentity={setUserIdentity}
-                        />
-                      )
-                    }
-                  />
-                  {/* 注册页面 */}
-                  <Route
-                    path="register"
-                    element={TOKEN ? <Navigate to={"/"} /> : <RegisterPage />}
-                  />
-                </Routes>
+        <>
+          {/* 判断当前路径，如果不是登录页面或注册页面则渲染导航栏 */}
+          {location.pathname !== "/login" &&
+            location.pathname !== "/register" && (
+              <>
+                <NavBar handleLogout={handleLogout} />
               </>
+            )}
+          <Routes>
+            {/* 主页，如果没有token则跳转登录页面 */}
+            <Route
+              path="/"
+              element={TOKEN ? <HomePage /> : <Navigate to={"/login"} />}
+            />
+            {/* 找工作页面 */}
+            <Route
+              path="/findJob"
+              element={
+                TOKEN ? (
+                  <WorkPage handleLogout={handleLogout} />
+                ) : (
+                  <Navigate to={"/login"} />
+                )
+              }
+            />
+            {/* 登录页面：传递回调函数，更新token */}
+            <Route
+              path="/login"
+              element={
+                TOKEN ? (
+                  <Navigate to={"/"} />
+                ) : (
+                  <LoginPage
+                    handleToken={handleToken}
+                    setUserIdentity={setUserIdentity}
+                  />
+                )
+              }
+            />
+            {/* 注册页面 */}
+            <Route
+              path="register"
+              element={TOKEN ? <Navigate to={"/"} /> : <RegisterPage />}
+            />
+            {/* 个人中心 */}
+            <Route
+              path="userSpace"
+              element={TOKEN ? <Profile /> : <Navigate to={"/"} />}
+            />
+
+            {/* 招聘圈 */}
+            <Route
+              path="/JobCircle"
+              element={TOKEN ? <JobCircle /> : <Navigate to={"/"} />}
+            />
+          </Routes>
+        </>
       ) : (
         <AdminPanel ></AdminPanel>
       )}
+
+      <Footer />
     </>
   );
 };

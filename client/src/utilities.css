@@ -31,7 +31,7 @@
     /* 天空蓝 */
     --blue-navy: #000080;
     /* 海军蓝 */
-    --darkGrey: rgb(206, 206, 206);
+    --darkGrey: #999;
     --medGrey: #f7f7f7;
     --grey: #f7f7f7;
     --white: #fff;
@@ -43,6 +43,13 @@
     --ml: 20px;
     --l: 24px;
     --xl: 32px;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body,
