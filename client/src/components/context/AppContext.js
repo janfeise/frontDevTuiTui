@@ -12,8 +12,22 @@ const GlobalContext = createContext();
 
 // 全局状态提供者组件
 const GlobalStateProvider = ({ children }) => {
-  // 从 localStorage 获取 token
-  const [TOKEN, setToken] = useState(() => !!localStorage.getItem("TuiTui"));
+  // 从 localStorage 初始化 TOKEN
+  const [TOKEN, _setToken] = useState(
+    () => localStorage.getItem("TuiTui") !== null
+  );
+
+  // 封装 setToken 以同步 localStorage
+  const setToken = (token) => {
+    if (token) {
+      localStorage.setItem("TuiTui", token);
+    } else {
+      localStorage.removeItem("TuiTui");
+    }
+    _setToken(!!token);
+  };
+
+  // 从 localStorage 初始化用户状态
 
   /**
    * 用户身份：
@@ -22,22 +36,50 @@ const GlobalStateProvider = ({ children }) => {
    *       1 表示在职者
    *       2 表示管理员
    */
-  const [userIdentity, setUserIdentity] = useState(-1);
+  const [userIdentity, setUserIdentity] = useState(() => {
+    const saved = localStorage.getItem("userIdentity");
+    return saved !== null ? parseInt(saved, 10) : "-1";
+  });
 
   /**
    * 用户名
    */
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(
+    () => localStorage.getItem("userName") || ""
+  );
 
   /**
    * 用户账号
    */
-  const [userAccount, setUserAccount] = useState("");
+  const [userAccount, setUserAccount] = useState(
+    () => localStorage.getItem("userAccount") || ""
+  );
 
   /**
    * 用户邮箱
    */
-  const [userEmail, setUserEmail] = useState("");
+  const [userEmail, setUserEmail] = useState(
+    () => localStorage.getItem("userEmail") || ""
+  );
+
+  // 监听状态变化并同步到 localStorage
+  useEffect(() => {
+    if (userName) {
+      localStorage.setItem("userName", userName);
+    }
+  }, [userName]);
+
+  useEffect(() => {
+    if (userAccount) {
+      localStorage.setItem("userAccount", userAccount);
+    }
+  }, [userAccount]);
+
+  useEffect(() => {
+    if (userEmail) {
+      localStorage.setItem("userEmail", userEmail);
+    }
+  }, [userEmail]);
 
   // 当 TOKEN 和 userIdentity 变化时，获取用户身份
   useEffect(() => {
@@ -51,8 +93,17 @@ const GlobalStateProvider = ({ children }) => {
             localStorage.setItem("userIdentity", res.data);
             setUserIdentity(res.data);
           } else {
+            // TOKEN 无效时清除数据
+            setToken(null);
+            setUserIdentity(-1);
+            setUserName("");
+            setUserAccount("");
+            setUserEmail("");
             localStorage.removeItem("TuiTui");
             localStorage.removeItem("userIdentity");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userAccount");
+            localStorage.removeItem("userEmail");
             console.log("请求失败或无响应");
             // 刷新页面
             window.location.reload(); // 强制刷新
@@ -65,7 +116,7 @@ const GlobalStateProvider = ({ children }) => {
     } else {
       setUserIdentity(-1);
     }
-  }, [TOKEN, userIdentity]);
+  }, [TOKEN, userIdentity, userAccount, userEmail, userName]);
 
   return (
     <GlobalContext.Provider

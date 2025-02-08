@@ -1,90 +1,116 @@
 :root {
-    --navbar-height: 60px; /* 导航栏高度 */
-    --underlineDivWidth: 80px;/* 导航栏使用的下划线组件的div宽度 */
-    --underlineDivMarginLeft: 20px; /* 导航栏使用的下划线组件的左侧边距*/
+  --navbar-height: 60px; /* 导航栏高度 */
+  --underlineDivWidth: 80px; /* 导航栏使用的下划线组件的div宽度 */
+  --underlineDivMarginLeft: 20px; /* 导航栏使用的下划线组件的左侧边距*/
 }
 
-.NavBar
-{
-    width: 100%;
-    height: var(--navbar-height);
-    background-color: var(--themeColor);
-    font-weight: 400;
-    color: white;
-    box-shadow: 0 4px 9px rgba(47, 49, 48, .1);
+.NavBar {
+  width: 100%;
+  height: var(--navbar-height);
+  background-color: var(--themeColor);
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 4px 9px rgba(47, 49, 48, 0.1);
 }
 
-.left>div
-{
-    margin-left: var(--underlineDivMarginLeft);
+.left > div {
+  margin-left: var(--underlineDivMarginLeft);
 }
 
 /* 添加下拉菜单样式 */
 .right .dropdown-menu {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-left: 75px;
-    padding: 0;
-    list-style: none;
-    z-index: 1000;
-  }
-  
-  .right .dropdown-menu li {
-    padding: 8px 16px;
-    cursor: pointer;
-    color: black;
-  }
-  
-  .right .dropdown-menu li:hover {
-    background-color: #f0f0f0;
-  }
-  
-.profile-container
-{
-    /* TODO */
-    height: var(--navbar-height);
-    margin: 0px 40px;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 1.5rem;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
 }
 
-.profile-container:hover
-{
-    cursor: pointer;
+.right .dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: black;
 }
 
-.profile-avatar-box
-{
-    /* TODO */
-    color: var(--themeColor);
-    margin-top: 7px;
-    margin-right: 10px;
+.right .dropdown-menu li:hover {
+  background-color: #f0f0f0;
 }
 
-.profile-avatar
-{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+.profile-container {
+  /* TODO */
+  height: var(--navbar-height);
+  margin: 0px 40px;
 }
 
-.profile-info-box
-{
-    /* TODO */
+.profile-container:hover {
+  cursor: pointer;
 }
 
-.profile-name
-{
-    display: block;
-    font-size: var(--m);
-    font-weight: bold;
-    margin-top: 3px;
-    margin-bottom: 3px;
+.profile-avatar-box {
+  /* TODO */
+  color: var(--themeColor);
+  margin-top: 7px;
+  margin-right: 10px;
 }
 
-.profile-account
-{
-    display: block;
-    font-size: var(--m);
-    color: var(--grey);
+.profile-avatar {
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 50%;
+}
+
+.profile-info-box {
+  /* TODO */
+}
+
+.profile-name {
+  display: block;
+  font-size: var(--m);
+  font-weight: bold;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.profile-account {
+  display: block;
+  font-size: var(--m);
+  color: var(--grey);
+}
+
+.nav__items span {
+  transition: all 0.2s;
+}
+
+.nav__items span {
+  font-size: var(--ml);
+  color: var(--grey);
+}
+
+.nav__items:hover span {
+  font-size: var(--l);
+}
+
+.nav__profile span {
+  color: #5c605f !important;
+}
+
+.nav__log-out {
+  color: red !important;
+}
+
+.nav__log-out span {
+  color: red !important;
+}
+
+.nav__items--active {
+  /* border-bottom: 1px solid var(--themeColor); */
+  background-color: var(--themeLighterColor);
+  transition: all 0.2s;
+}
+
+.nav__items--active span {
+  color: var(--themeColor);
 }

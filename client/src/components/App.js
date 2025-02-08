@@ -55,6 +55,9 @@ const AppWithRouter = () => {
     // 清除本地存储中的 token
     localStorage.removeItem("TuiTui");
     localStorage.removeItem("userIdentity");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userAccount");
+    localStorage.removeItem("userEmail");
 
     // 清除当前状态中的 token
     setToken(false);
@@ -124,7 +127,7 @@ const AppWithRouter = () => {
           </Routes>
         </>
       ) : (
-        <AdminPanel ></AdminPanel>
+        <AdminPanel></AdminPanel>
       )}
 
       <Footer />

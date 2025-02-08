@@ -2,7 +2,10 @@
  * 个人中心页面的左侧菜单栏
  */
 /* 导入react */
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+/* 导入全局状态管理的组件 */
+import { GlobalStateProvider, GlobalContext } from "../context/AppContext";
 
 /* 导入样式 */
 import "./profileSideMenu.css";
@@ -14,6 +17,24 @@ import "./profileSideMenu.css";
  * @param {Function} handleClick 点击菜单选项时，改变对应的activeComponent
  */
 export default function ProfileSideMenu(props) {
+  // 使用 useContext 来获取全局状态
+  const {
+    userName,
+    setUserName,
+    userAccount,
+    setUserAccount,
+    userEmail,
+    setUserEmail,
+    userIdentity,
+    setUserIdentity,
+  } = useContext(GlobalContext);
+
+  const [publishJob, setPublishJob] = useState(() => userIdentity === "1");
+
+  useEffect(() => {
+    setPublishJob(() => userIdentity === "1");
+  }, [userIdentity]);
+
   return (
     <div className="u-flex u-flex-column u-flex-alignCenter profileSideMenu">
       {/* 用户头像 */}
@@ -35,10 +56,10 @@ export default function ProfileSideMenu(props) {
       </div>
 
       {/* 用户名 */}
-      <div className="profileSideMenu__userName">个人中心</div>
+      <div className="profileSideMenu__userName">{userName}</div>
 
       {/* 账号 */}
-      <div className="profileSideMenu__userAccount">账号：22222222</div>
+      <div className="profileSideMenu__userAccount">账号：{userAccount}</div>
 
       {/* 个人中心页面的左侧菜单栏 */}
       <div className="u-flex u-flex-column u-flex-justifyCenter u-flex-alignCenter profileSideMenu__container">
@@ -46,10 +67,28 @@ export default function ProfileSideMenu(props) {
           className={`profileSideMenu__personalCenter ${
             props.activeComponent === "info" ? "profileSideMenu--active" : ""
           }`}
-          onClick={() => {props.handleClick("info")}}
+          onClick={() => {
+            props.handleClick("info");
+          }}
         >
-          <span>我的信息</span>
+          <span className="profileSideMenu__title">我的信息</span>
         </div>
+
+        {publishJob && (
+          <div
+            className={`profileSideMenu__personalresume ${
+              props.activeComponent === "publishJob"
+                ? "profileSideMenu--active"
+                : ""
+            }`}
+            onClick={() => {
+              props.handleClick("publishJob");
+            }}
+          >
+            <span className="profileSideMenu__title">发布职位</span>
+          </div>
+        )}
+
         <div
           className={`profileSideMenu__personalresume ${
             props.activeComponent === "resume" ? "profileSideMenu--active" : ""
@@ -58,7 +97,7 @@ export default function ProfileSideMenu(props) {
             props.handleClick("resume");
           }}
         >
-          <span>我的简历</span>
+          <span className="profileSideMenu__title">我的简历</span>
         </div>
       </div>
     </div>

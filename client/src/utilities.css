@@ -2,198 +2,202 @@
 * 定义全局变量
 */
 :root {
-    /* 已使用的color */
-    --themeColor: #9EC6F8;
-    /* 主题色 */
-    --themeDarkColor: #6777EF;
-    /* 深主题色 */
-    --themeLightColor: #D4E9FF;
-    /* 浅主题色 */
-    --themeLighterColor: #EAF4FF;
-    /* 更浅的主题色 */
-    --backgroundColorOfGrey: rgb(243, 245, 250, 0.8);
-    /* 背景色：浅灰色 */
-    --white: white;
-    /* 白色 */
-    --errorInfoColor: #D9534F;
-    /* 显示错误信息的颜色（如弹窗文字颜色） */
+  /* 已使用的color */
+  --themeColor: #9ec6f8;
+  /* 主题色 */
+  --themeDarkColor: #6777ef;
+  /* 深主题色 */
+  --themeLightColor: #d4e9ff;
+  /* 浅主题色 */
+  --themeLighterColor: #eaf4ff;
+  /* 更浅的主题色 */
+  --backgroundColorOfGrey: rgb(243, 245, 250, 0.8);
+  /* 背景色：浅灰色 */
+  --white: white;
+  /* 白色 */
+  --black: black;
+  /* 黑色 */
+  --errorInfoColor: #d9534f;
+  /* 显示错误信息的颜色（如弹窗文字颜色） */
 
+  /* color */
+  --blue-light: #add8e6;
+  /* 浅蓝色 */
+  --blue-medium: #0000ff;
+  /* 标准蓝色 */
+  --blue-dark: #00008b;
+  /* 深蓝色 */
+  --blue-sky: #87ceeb;
+  /* 天空蓝 */
+  --blue-navy: #000080;
+  /* 海军蓝 */
+  --darkGrey: #999;
+  --medGrey: #f7f7f7;
+  --grey: #f7f7f7;
+  --white: #fff;
 
-
-    /* color */
-    --blue-light: #ADD8E6;
-    /* 浅蓝色 */
-    --blue-medium: #0000FF;
-    /* 标准蓝色 */
-    --blue-dark: #00008B;
-    /* 深蓝色 */
-    --blue-sky: #87CEEB;
-    /* 天空蓝 */
-    --blue-navy: #000080;
-    /* 海军蓝 */
-    --darkGrey: #999;
-    --medGrey: #f7f7f7;
-    --grey: #f7f7f7;
-    --white: #fff;
-
-    /* 尺寸 */
-    --xs: 4px;
-    --s: 8px;
-    --m: 16px;
-    --ml: 20px;
-    --l: 24px;
-    --xl: 32px;
+  /* 尺寸 */
+  --xs: 4px;
+  --s: 8px;
+  --m: 16px;
+  --ml: 20px;
+  --l: 24px;
+  --xl: 32px;
 }
 
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    margin: 0;
-    padding: 0;
-    font-family: "FZLanTingHei", "Microsoft YaHei";
-    font-weight: 300;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  font-family: "FZLanTingHei", "Microsoft YaHei";
+  font-weight: 300;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 2.5rem;
 }
 
 .u-flex {
-    display: flex;
-    gap: 0;
+  display: flex;
+  gap: 0;
 }
 
 .u-flex-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .u-flex-alignCenter {
-    align-items: center;
+  align-items: center;
 }
 
 .u-flex-justifyCenter {
-    justify-content: center;
+  justify-content: center;
 }
 
 .u-flex-spaceBetween {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .u-flex-1 {
-    flex: 1;
+  flex: 1;
 }
 
 .u-shadow {
-    border: 2px solid #333;
-    /* 边框 */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    /* 阴影效果 */
+  border: 2px solid #333;
+  /* 边框 */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  /* 阴影效果 */
 }
 
 .u-width {
-    width: 250px;
+  width: 250px;
 }
 
 .u-height {
-    height: 40px;
+  height: 40px;
 }
 
 .u-border {
-    border: 2px solid var(--darkGrey);
-    /* 外边框样式 */
-    border-radius: 8px;
-    /* 输入框圆角 */
+  border: 2px solid var(--darkGrey);
+  /* 外边框样式 */
+  border-radius: 8px;
+  /* 输入框圆角 */
 }
 
 .u-border:focus {
-    border-color: #0DA8EE;
-    /* 当获得焦点时，边框颜色变为浅蓝色 */
-    outline: none;
-    /* 去除默认的焦点轮廓 */
+  border-color: #0da8ee;
+  /* 当获得焦点时，边框颜色变为浅蓝色 */
+  outline: none;
+  /* 去除默认的焦点轮廓 */
 }
 
 .u-border:focus:hover {
-    border-color: #0DA8EE;
-    /* 当获得焦点时，边框颜色变为浅蓝色 */
-    outline: none;
-    /* 去除默认的焦点轮廓 */
+  border-color: #0da8ee;
+  /* 当获得焦点时，边框颜色变为浅蓝色 */
+  outline: none;
+  /* 去除默认的焦点轮廓 */
 }
 
 /* 悬浮 */
 .u-border:hover {
-    border-color: rgb(172, 172, 172);
+  border-color: rgb(172, 172, 172);
 }
 
 .u-fontSpacing {
-    letter-spacing: 2px;
+  letter-spacing: 2px;
 }
 
 .u-fontLargeSpacing {
-    letter-spacing: 10px;
+  letter-spacing: 10px;
 }
 
 .u-noWrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .u-textUnderline {
-    color: #0DA8EE;
-    text-decoration: underline;
-    text-decoration-color: #0DA8EE;
-    text-decoration-thickness: 1px;
+  color: #0da8ee;
+  text-decoration: underline;
+  text-decoration-color: #0da8ee;
+  text-decoration-thickness: 1px;
 }
 
 /* 字体 */
 /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-    font-family: "进步体";
-    /* 设置字体族名，后面可用 "进步体" 或 "微软雅黑" */
-    src: url("../public/fonts/钉钉进步体/DingTalk-JinBuTi.ttf"),
+  font-family: "进步体";
+  /* 设置字体族名，后面可用 "进步体" 或 "微软雅黑" */
+  src: url("../public/fonts/钉钉进步体/DingTalk-JinBuTi.ttf");
 }
 
 .u-fontFamily {
-    font-family: "进步体";
-    font-weight: 400;
+  font-family: "进步体";
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: "微软雅黑";
-    src: url("../public/fonts/1-220503221351/微软雅黑.ttf");
+  font-family: "微软雅黑";
+  src: url("../public/fonts/1-220503221351/微软雅黑.ttf");
 }
 
 .u-fontWeiRuan {
-    font-family: "微软雅黑";
+  font-family: "微软雅黑";
 }
 
 .u-bold {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .u-backColor {
-    background-color: #F4F6F9;
+  background-color: #f4f6f9;
 }
 
 .u-fontSize {
-    font-size: var(--m);
+  font-size: var(--m);
 }
 
 .u-fontLargeSize {
-    font-size: var(--xl);
+  font-size: var(--xl);
 }
 
 .u-inline {
-    display: inline;
+  display: inline;
 }
 
 .u-viewCenter {
-    position: fixed;
-    /* 固定位置 */
-    top: 50%;
-    /* 垂直居中 */
-    left: 50%;
-    /* 水平居中 */
-    z-index: 999;
-    /* 确保弹窗显示在页面最上层 */
+  position: fixed;
+  /* 固定位置 */
+  top: 50%;
+  /* 垂直居中 */
+  left: 50%;
+  /* 水平居中 */
+  z-index: 999;
+  /* 确保弹窗显示在页面最上层 */
 }

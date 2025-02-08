@@ -36,11 +36,15 @@ import "./login.css";
  * @param {Function} setUserIdentity 更新用户身份
  */
 const LoginPage = (props) => {
-    // 使用 useContext 来获取全局状态
-    const { userName, setUserName, userAccount, setUserAccount,
-      userEmail, setUserEmail
-     } =
-    useContext(GlobalContext);
+  // 使用 useContext 来获取全局状态
+  const {
+    userName,
+    setUserName,
+    userAccount,
+    setUserAccount,
+    userEmail,
+    setUserEmail,
+  } = useContext(GlobalContext);
 
   // 记录账户和密码
   const [value_user, set_value_user] = useState(""); // 账户
@@ -136,7 +140,7 @@ const LoginPage = (props) => {
             .then((res) => {
               console.log(res);
               if (res && res.code === 200) {
-                localStorage.setItem("userIdentity", res.data);
+                localStorage.setItem("userIdentity", parseInt(res.data));
                 props.setUserIdentity(res.data);
               } else {
                 console.log("Failed or no response");
@@ -146,10 +150,10 @@ const LoginPage = (props) => {
               console.log("Request failed:", error);
             });
 
-            // 获取用户基本信息
-            setUserAccount(data.data.userAccount);
-            setUserName(data.data.userName);
-            setUserEmail(data.data.email);
+          // 获取用户基本信息
+          setUserAccount(data.data.userAccount);
+          setUserName(data.data.userName);
+          setUserEmail(data.data.email);
 
           // 页面跳转
           props.handleToken(token);

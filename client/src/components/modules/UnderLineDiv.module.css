@@ -1,35 +1,34 @@
-:root
-{
-    --underlineColor: currentColor;
+:root {
+  --underlineColor: currentColor;
 }
 
-.container
-{
-    width: fit-content;
-    min-width: var(--divWidth);
-    height: var(--divHeight);
-    font-size: var(--fontSize);
-    position: relative;
+.container {
+  width: fit-content;
+  min-width: var(--divWidth);
+  height: var(--divHeight);
+  font-size: var(--fontSize);
+  position: relative;
 }
 
-.container:hover
-{
-    cursor: pointer;
+.container:hover {
+  cursor: pointer;
 }
 
-.container::after
-{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: var(--underLineSize, 2px);
-    background-color: var(--underlineColor);
-    transition: width 0.3s ease;
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: var(--underLineSize, 2px);
+  background-color: var(--underlineColor);
+  transition: width 0.3s ease;
 }
 
-.container:hover::after
-{
-    width: 100%;
+.container:hover::after {
+  width: 100%;
+}
+
+.underLineComponent__text {
+  color: var(--black);
 }

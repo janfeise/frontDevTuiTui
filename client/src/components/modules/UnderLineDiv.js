@@ -21,16 +21,25 @@ import "../../utilities.css";
  * @param {string} textColor 文本颜色
  * @param {string} underLineSize 下划线的尺寸
  * @param {string} fontSize 字体大小
+ * @param {className} className 类名
+ * @param {Number} index 索引
+ * @param {Number} specialIndex 特殊样式的索引
  * @param {function} onClick 点击事件回调函数
  */
 const UnderLineDiv = ({
+  className,
+  index,
+  specialIndex,
+  specialClassName,
   text = "样例文字",
   width = "100px",
   height = "60px",
   underLineColor = "grey",
-  textColor = "black",
+  textColor,
   underLineSize = 1,
-  fontSize = getComputedStyle(document.documentElement).getPropertyValue("--m").trim(),
+  fontSize = getComputedStyle(document.documentElement)
+    .getPropertyValue("--m")
+    .trim(),
   onClick = () => {},
 }) => {
   const handleClick = () => {
@@ -43,19 +52,26 @@ const UnderLineDiv = ({
 
   return (
     <div
-      className={`u-flex u-flex-alignCenter u-flex-justifyCenter ${style.container}`}
+      className={`u-flex u-flex-alignCenter u-flex-justifyCenter ${className} 
+      ${index === specialIndex ? specialClassName : ""}
+      ${style.container}`}
       style={{
         "--divWidth": width,
         "--divHeight": height,
         "--underLineSize": `${underLineSize}px`,
-        "--fontSize": fontSize,
+
         color: underLineColor,
       }}
       onClick={handleClick}
     >
-      <span className={style.text} style={{ color: textColor,
-        "letterSpacing": "2px",
-       }}>
+      <span
+        className={`${style.underLineComponent__text}`}
+        style={{
+          fontSize: fontSize,
+          color: textColor,
+          letterSpacing: "2px",
+        }}
+      >
         {text}
       </span>
     </div>

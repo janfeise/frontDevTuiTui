@@ -1,6 +1,4 @@
-.dropMenu
-{
-    background-color: var(--white);
-
-    position: absolute;
+.dropMenu {
+  background-color: var(--white);
+  position: absolute;
 }

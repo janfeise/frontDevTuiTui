@@ -1,5 +1,37 @@
-.profileInfo
-{
-    width: var(----main-width);
-    height: 100vh;
+.profileInfo {
+  width: var(----main-width);
+  height: 100vh;
+}
+
+.profileInfo__box--title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.8;
+  padding: 20px;
+}
+
+.profile__underline {
+  border-bottom: 1.7px solid var(--grey);
+}
+
+.profileInfo__box--main {
+  padding: 40px;
+}
+
+.profileInfo__title {
+  display: inline-block;
+  width: 8rem;
+  font-size: 1.6rem;
+  text-align: right;
+  margin-right: 2rem;
+  color: var(--darkGrey);
+}
+
+.profileInfo__content {
+  font-size: 1.6rem;
+  color: var(--black);
+  font-family: "Arial", sans-serif; /* 设置字体，首选 Arial，备用 sans-serif */
+  font-weight: 400; /* 字重，400 为正常，600 为半粗，700 为加粗 */
+  line-height: 1.5; /* 调整行高，提升可读性 */
+  letter-spacing: 0.5px; /* 增加字间距，使文字更清晰 */
 }
